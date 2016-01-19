@@ -36,10 +36,9 @@
                                 li(ng-repeat="service in resumeItem.deliveryServices")
                                     a(href="{{service.url}}", target="_blank")
                                         img.option-delivery(ng-src="img/{{service.logo_url}}", alt="{{service.name}}")
-            .disclaimers
-                h5 ** Términos y condiciones
-                ol
-                    li Los precios de las opciones son tentativos y pueden variar de acuerdo a cambios hechos por los establecimientos, que no hayan sido actualizados en Antojado.com.
-                    li Los precios de las opciones pueden se distintos en cada servicio de domicilio de acuerdo con sus acuerdos y políticas.
-                    li Debes validar con cada servicio de domicilio si tienen cobertura en la zona donde estás.
-                    li El proceso y las herramientas para solicitar finalmente un pedido depende de cada proveedor.
+                    .list-group-item.disabled.disclaimer
+                        ul
+                            li Los precios de las opciones son tentativos y pueden variar de acuerdo a cambios hechos por los establecimientos, que no hayan sido actualizados en Antojado.com.
+                            li Los precios de las opciones pueden se distintos en cada servicio de domicilio de acuerdo con sus acuerdos y políticas.
+                            li Debes validar con cada servicio de domicilio si tienen cobertura en la zona donde estás.
+                            li El proceso y las herramientas para solicitar finalmente un pedido depende de cada proveedor.

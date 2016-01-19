@@ -55,7 +55,7 @@
     //resultados de la búsqueda
     .row.search-results(ng-show="response.docs.length > 0")
         .col-md-7
-            p.results-caption Selecciona las opciones que más te atraigan para que luego las compares y decidas
+            p.results-caption Selecciona las opciones que más te gusten **
             //tabla de resultados
             .list-group
                 .list-group-item(ng-repeat="result in response.docs")
@@ -81,6 +81,10 @@
                             span.text-capitalize(ng-repeat="tag in result.tag")
                                 a(href='#/search', ng-click="selectTag(result, tag)", title="ver resultados de esta caregoría")  {{tag}}
                                 span(ng-show="$index < result.tag.length - 1")  /
+                .list-group-item.disabled.disclaimer
+                    ol.list-unstyled
+                        li ** Los precios de las opciones son tentativos y pueden variar de acuerdo a cambios hechos por los establecimientos, que no hayan sido actualizados en Antojado.com.
+
             //paginador de la tabla de resultados
             ul.pagination.center
                 li
@@ -94,20 +98,20 @@
 
             //convenciones de las acciones de cada resultado
             .results-convenciones
-                h5 Acciones sobre los resultados de búsqueda:
+                h5 ¿Qué puedes hacer con cada opción?
                 ul.list-unstyled.text-muted
                     li
                         i.fa.fa-book
-                        |  = mostrar todas las opciones del sitio
+                        |  = ver todas las opciones del mismo sitio
                     li
                         i.fa.fa-camera
-                        |  = mostrar foto disponible de la opción
+                        |  = ver su foto disponible
                     li
                         i.fa.fa-home
-                        |  = mostrar solo las opciones relvantes del sitio
+                        |  = filtrar las opciones del mismo sitio y relacionadas con la búsqueda
                     li
                         i.fa.fa-tag
-                        |  = mostrar solo las opciones clasificadas con la misma categoría
+                        |  = filtrar las opciones de la misma categoría y relacionadas con la búsqueda
 
         //modal donde se muestra la imagen del resultado seleccionado
         .modal.fade(id="resultModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", ng-show="selectedResult != null")

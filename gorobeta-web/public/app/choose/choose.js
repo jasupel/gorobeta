@@ -63,7 +63,7 @@ angular.module( 'goro.choose', [
             //encuentra la opción previamente seleccionada
             var index = 0;
             for(; sessionSvc.selectedOptions[index].id != option.id; index++);
-            sessionSvc.selectedOptions.slice(index, 1);
+            sessionSvc.selectedOptions.splice(index, 1);
         }
     }
 

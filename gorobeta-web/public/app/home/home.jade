@@ -4,18 +4,15 @@
         .col-md-12.text-center
             h1.text-uppercase Decide fácil qué comer
             p.lead Descubre todas las opciones con las que puedes calmar tus antojos en Bogotá
-        .col-md-8.col-md-offset-2.home-search-form
-            form.css-form(action="#/search?text={{query.text}}&priceRange={{query.priceRange}}")
-                .input-group.input-group-lg
-                    input.form-control.input-lg(type="text", id="text" aria-describedby="textStatus"
-                        placeholder="Ejemplo: carne tomate esparragos", ng-model="query.text", required)
+        .col-md-6.col-md-offset-3.home-search-form
+            form.css-form(action="#/search?text={{query.text}}")
+                .input-group
+                    input.form-control(type="text", placeholder="Ejemplo: carne con tomate cebolla y maiz", ng-model="query.text", required)
                     .input-group-btn
-                        .btn-group
-                            select.form-control.input-lg(ng-model="query.priceRange")
-                                option(style="color:grey;", value="", selected, disabled) Precio
-                                option(ng-repeat="range in priceRanges", value="{{$index}}") {{range.sign}} {{range.amount}}
+                        a.btn.btn-default(href="#/help")
+                            i.fa.fa-question-circle
                         button.btn.btn-primary(type="submit") Descubrir
-                p Describe los ingredientes y/o sabores que quisieras, y el precio máximo dispuesto a pagar
+                p Describe lo que quieras comer en tus propias palabras
     .row.intro-2
         .col-md-8.col-md-offset-2.text-center
             h4 Busca libremente y descubre nuevas opciones
