@@ -1,0 +1,12 @@
+{
+  "name": "gorobeta-web",
+  "version": "1.0.0",
+  "description": "Buscador inteligente de opciones de comida en Bogotá",
+  "main": "index.ejs",
+  "dependencies": {
+    "harp": "^0.20.1"
+  },
+  "engines": {
+    "node": "4.1.1"
+  }
+}
