@@ -53,8 +53,8 @@
                             i.fa.fa-close
 
     //resultados de la búsqueda
-    .row.search-results(ng-show="response.docs.length > 0")
-        .col-md-7
+    .row.search-results
+        .col-md-7(ng-show="response.docs.length > 0")
             p.results-caption Selecciona las opciones que más te gusten **
             //tabla de resultados
             .list-group
@@ -113,13 +113,19 @@
                         i.fa.fa-tag
                         |  = filtrar las opciones de la misma categoría y relacionadas con la búsqueda
 
-        //modal donde se muestra la imagen del resultado seleccionado
-        .modal.fade(id="resultModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", ng-show="selectedResult != null")
-            .modal-dialog.modal-sm(role="document")
-                .modal-content
-                    .modal-header
-                        button.close(type="button", data-dismiss="modal", aria-label="Close", ng-click="selectedResult = null;")
-                            span(aria-hidden="true") &times;
-                        h4.modal-title {{selectedResult.name}}
-                    .modal-body
-                        img(ng-src="{{selectedResult.image_url}}")
+            //modal donde se muestra la imagen del resultado seleccionado
+            .modal.fade(id="resultModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", ng-show="selectedResult != null")
+                .modal-dialog.modal-sm(role="document")
+                    .modal-content
+                        .modal-header
+                            button.close(type="button", data-dismiss="modal", aria-label="Close", ng-click="selectedResult = null;")
+                                span(aria-hidden="true") &times;
+                            h4.modal-title {{selectedResult.name}}
+                        .modal-body
+                            img(ng-src="{{selectedResult.image_url}}")
+
+        //contenido cuando la búsqueda no arroja resultados
+        .col-md-7(ng-show="hasNoResults")
+            .alert.alert-warning(role="alert")
+                i.fa.fa-meh-o.fa-lg
+                |   Lo sentimos, no existen opciones con tus criterios de búsqueda. Intenta con otra descripción.

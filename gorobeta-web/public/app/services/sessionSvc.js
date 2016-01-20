@@ -17,16 +17,11 @@ angular.module('goro-app').factory('sessionSvc', function()
             //sitios que ofrecen la opción
             places: [],
             //número del resultado inicial que se quiere ver (paginación)
-            start: 0,
+            start: -1,
             pageSize: 10
         },
         //resultados de la búsqueda dado los criterios de búsqueda (query)
-        queryResponse : {
-            //cantidad total de registros existentes
-            total : 0,
-            //resultados del query
-            results : []
-        },
+        //queryResponse : {},
         //resultados que al usuario le han gustado y ha pre-seleccionado
         options : [],
         //resultados que al usuario le han gustado y ha seleccionado

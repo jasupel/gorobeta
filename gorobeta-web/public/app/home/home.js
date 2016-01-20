@@ -16,7 +16,7 @@ angular.module( 'goro.home', [
         templateUrl: 'app/home/home.html'
       }
     },
-    data:{ pageTitle: 'Antojado - Decide fácil qué comer' }
+    data:{ pageTitle: 'Decide fácil qué comer' }
   });
 })
 

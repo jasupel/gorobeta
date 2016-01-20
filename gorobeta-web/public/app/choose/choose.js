@@ -12,7 +12,7 @@ angular.module( 'goro.choose', [
                 templateUrl: 'app/choose/choose.html'
             }
         },
-        data:{ pageTitle: 'Conoce y elige - Goro' }
+        data:{ pageTitle: 'Conoce y elige' }
     });
 })
 

@@ -28,6 +28,8 @@ angular.module( 'goro.search', [
     const NUM_PAGES = 5;
     //datos del paginador
     $scope.paginator = [];
+    //indica si se hizo una búsqueda y no arrojó resultados
+    $scope.hasNoResults;
 
     /**
      * Inicializa los valores del controlador
@@ -39,16 +41,16 @@ angular.module( 'goro.search', [
         $scope.query.priceRange = 0;
         $scope.query.places = [];
         $scope.query.tags = [];
-        $scope.query.start = 0;
+        $scope.query.start = -1;
+        $scope.hasNoResults = false;
         //rangos de precios
         $scope.priceRanges = sessionSvc.priceRanges;
         //parámetros pasados por query string
         $scope.query.text = ($stateParams.text != null) ? $stateParams.text : $scope.query.text;
-        if ($stateParams.priceRange)
-            $scope.query.priceRange = Number($stateParams.priceRange);
-        if ($scope.query.text != null)
-        if ($scope.query.text != null)
+        if ($scope.query.text != ""){
+            console.log("$scope.query.text = "+$scope.query.text);
             $scope.search();
+        }
 
         //response
         $scope.response = sessionSvc.queryResponse;
@@ -59,6 +61,7 @@ angular.module( 'goro.search', [
      * @pre: las validaciones de los campos del formulario pasaron
      */
     $scope.search = function () {
+        console.log("search");
         $scope.query.start = 0;
         runQuery();
     }
@@ -120,6 +123,7 @@ angular.module( 'goro.search', [
             function successCallback(response) {
                 $scope.response = response.data.response;
                 sessionSvc.queryResponse = $scope.response;
+                $scope.hasNoResults = $scope.response.numFound == 0;
                 updatePaginator(Math.floor($scope.query.start / PAGE_SIZE) +1);
             },
             function errorCallback(response) {
