@@ -48,7 +48,6 @@ angular.module( 'goro.search', [
         //parámetros pasados por query string
         $scope.query.text = ($stateParams.text != null) ? $stateParams.text : $scope.query.text;
         if ($scope.query.text != ""){
-            console.log("$scope.query.text = "+$scope.query.text);
             $scope.search();
         }
 
@@ -61,7 +60,6 @@ angular.module( 'goro.search', [
      * @pre: las validaciones de los campos del formulario pasaron
      */
     $scope.search = function () {
-        console.log("search");
         $scope.query.start = 0;
         runQuery();
     }
