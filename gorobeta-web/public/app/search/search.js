@@ -110,7 +110,7 @@ angular.module( 'goro.search', [
         getTagsFilter(filters);
         getPriceFilter(filters);
 
-        var url = "https://52.23.223.59:8443/solr/gorobeta/select";
+        var url = "http://52.23.223.59:8983/solr/gorobeta/select";
         //agrega los filtros
         if (filters.length > 0)
             url = url.concat("?").concat(filters.join("&"));
