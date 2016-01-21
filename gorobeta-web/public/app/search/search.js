@@ -274,6 +274,7 @@ angular.module( 'goro.search', [
     $scope.selectResult = function(index, result) {
         sessionSvc.options.push(result);
         $scope.response.docs.splice(index, 1);
+        loadResultsSection();
     }
 
     /**

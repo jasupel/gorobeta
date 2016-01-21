@@ -29,7 +29,8 @@
                                 span
                                     b {{option.name}}
                                     b.pull-right(ng-show="greaterThanZero(option.price)") {{option.price | solrPrice | number}}
-                                p.list-group-item-text.text-muted {{option.description[0]}}
+                                span
+                                    p.list-group-item-text.text-muted(ng-repeat="desc in option.description") {{option.description[option.description.length - $index - 1]}}
                         //ociones exixstentes sobre le resultado
                         .result-options.text-right
                             ul.list-inline

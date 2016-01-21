@@ -64,7 +64,8 @@
                         span
                             b.list-group-item-heading.result-name {{result.name | capitalizedName}}
                             b.pull-right.result-price(ng-show="greaterThanZero(result.price)") {{result.price | solrPrice | number}}
-                        p.list-group-item-text.text-muted {{result.description[0]}}
+                        span
+                            p.list-group-item-text.text-muted(ng-repeat="desc in result.description") {{result.description[result.description.length - $index - 1]}}
                     //ociones exixstentes sobre le resultado
                     .result-options
                         span.result-menu
